@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34c62dc9-d3e6-4634-a945-6000aa9ce83f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="p_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tblissuebooks.`issue_id` AS Issue_ID,
+     tblissuebooks.`book_id` AS Book_ID,
+     tblissuebooks.`mem_id` AS Member_ID,
+     tblissuebooks.`status` AS Status,
+     tblissuebooks.`issue_date` AS Issue_Date,
+     tblissuebooks.`due_date` AS Due_Date
+FROM
+     `tblissuebooks` tblissuebooks
+WHERE issue_id = $P{p_id}]]>
+	</queryString>
+	<field name="Issue_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Book_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Member_ID" class="java.lang.Integer"/>
+	<field name="Status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Issue_Date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Due_Date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="334" height="33" uuid="4042de21-8c35-428f-9fb0-2396c0c6baa2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Report Issue Book By ID]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="fba6fb9b-cc7c-4713-af5b-7f6701b124b3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="74" height="15" uuid="2f080fc9-f6b1-437d-9181-bdfa937b50b1"/>
+				<text><![CDATA[Issue_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="74" y="19" width="73" height="15" uuid="c423d515-46e3-4324-b6f6-6b835b98e72c"/>
+				<text><![CDATA[Book_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="147" y="19" width="74" height="15" uuid="f9069737-a24d-47b3-b1c7-e3c80e4443c1"/>
+				<text><![CDATA[Member_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="221" y="19" width="92" height="15" uuid="2d3dbbfb-0553-4eb9-9d4e-da6776e83137"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="19" width="108" height="15" uuid="a49a8c6a-5884-4518-b6d7-7ff36a7150d9"/>
+				<text><![CDATA[Issue_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="421" y="19" width="121" height="15" uuid="d88e03c5-226a-4c1f-8c5c-43505f8952fc"/>
+				<text><![CDATA[Due_Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="bfdaff14-0f9b-40f1-ac4b-3af2ca37c708"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="74" height="15" uuid="1754f0a7-7cc5-46ee-9641-0c9db97a6c6e"/>
+				<textFieldExpression><![CDATA[$F{Issue_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="74" y="0" width="73" height="15" uuid="3cd7466b-20cf-47c4-b48d-dc639425da9c"/>
+				<textFieldExpression><![CDATA[$F{Book_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="147" y="0" width="74" height="15" uuid="04124ad6-6b49-4224-9ae4-92b0f5bbb835"/>
+				<textFieldExpression><![CDATA[$F{Member_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="221" y="0" width="92" height="15" uuid="2b4eb9cf-69e8-44d7-9a20-36e9c0df74f8"/>
+				<textFieldExpression><![CDATA[$F{Status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="313" y="0" width="108" height="15" uuid="98e0ca80-d480-4a2f-a9e4-406396ec41e4"/>
+				<textFieldExpression><![CDATA[$F{Issue_Date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="421" y="0" width="121" height="15" uuid="6c3ff531-bd98-4e20-91ea-847a5762f3b4"/>
+				<textFieldExpression><![CDATA[$F{Due_Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="a53a195b-e1ea-495f-8642-0ab4d91e8788"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="c1f181ca-a56b-46d2-acbf-70c80b222a2a"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="a6ee3cea-ce53-4972-a4b2-1a9072d9b6fd"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="96adb759-ad74-48cf-843a-043b9b080a8a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
